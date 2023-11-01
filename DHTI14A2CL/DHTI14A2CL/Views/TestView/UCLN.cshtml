@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "UCLN";
+}
+
+<h2>Ước chung Lớn Nhất</h2>
+@*@{ Html.BeginForm("TimUCLonNhat", "TestView", FormMethod.Post);}*@
+@{ Html.BeginForm();}
+
+@Html.Label("Mời bạn nhập số nguyên thứ nhất:")
+@Html.TextBox("a") </br>
+
+@Html.Label("Mời bạn nhập số nguyên thứ hai:")
+@Html.TextBox("b") </br>
+
+
+<input type="submit" value="Submit">
+@{Html.EndForm(); }

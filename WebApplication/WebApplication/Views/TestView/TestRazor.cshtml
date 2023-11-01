@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>TestRazor</title>
+</head>
+<body>
+    <div>
+        @{
+            int a = ViewBag.a;
+            var n = 10;
+            for (int i = 1; i <= n; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    <p>@i</p>
+                }
+            }
+        }
+    </div>
+</body>
+</html>

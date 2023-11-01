@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UCLN</title>
+</head>
+<body>
+    <div> 
+        @{ 
+            int a = ViewBag.a;
+            int b = ViewBag.b;
+            int ucln;
+            while (a != b)
+            {
+                if (a > b)
+                {
+                    a = a - b;
+                }
+                else
+                {
+                    b = b - a;
+                }
+            }
+            ucln = a;
+        }
+        <p>UCLN của @ViewBag.a và @ViewBag.b là @ucln</p>
+    </div>
+</body>
+</html>

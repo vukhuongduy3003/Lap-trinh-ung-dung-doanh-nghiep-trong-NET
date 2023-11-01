@@ -1,0 +1,24 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <div> 
+        @{ 
+            var user = ViewBag.user as WebApplication.Models.User;
+                <p>Id: @user.Id</p>
+                <p>Name: @user.Name</p>
+                <p>Address: @user.Address</p>
+                <p>Email: @user.Email</p>
+        }
+    </div>
+</body>
+</html>

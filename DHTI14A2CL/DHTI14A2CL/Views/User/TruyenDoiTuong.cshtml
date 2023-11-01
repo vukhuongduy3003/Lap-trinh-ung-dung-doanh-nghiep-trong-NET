@@ -1,0 +1,33 @@
+﻿@model DHTI14A2CL.Models.User
+@{
+    ViewBag.Title = "TruyenDoiTuong";
+}
+
+<h2>TruyenDoiTuong</h2>
+
+@*@{
+        //var user = ViewBag.user as DHTI14A2CL.Models.User;
+        //var user = Model as DHTI14A2CL.Models.User;
+        var user = Model;
+        <p>Id: @user.Id</p>
+        <p>Name: @user.Name</p>
+        <p>Address: @user.Address</p>
+        <p>Email: @user.Email</p>
+    }*@
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.Id)
+    @Html.EditorFor(model => model.Id)
+    <br />
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+    <br />
+    @Html.LabelFor(model => model.Address)
+    @Html.EditorFor(model => model.Address)
+    <br />
+    @Html.LabelFor(model => model.Email)
+    @Html.EditorFor(model => model.Email)
+    <br />
+    <input type="submit" name="sub" value="Submit" />
+}
