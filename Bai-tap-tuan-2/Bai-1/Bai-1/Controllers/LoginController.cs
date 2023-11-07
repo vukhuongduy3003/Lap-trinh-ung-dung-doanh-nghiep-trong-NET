@@ -15,7 +15,7 @@ namespace Bai_1.Controllers
         {
             if (username == "admin" && password == "admin")
             {
-                return View("~/Views/Home/Index.cshtml");
+                return View("~/Views/Login/Success.cshtml");
             }
             else
             {
