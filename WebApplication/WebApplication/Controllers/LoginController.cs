@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using WebApplication.Models;
@@ -15,7 +16,34 @@ namespace WebApplication.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            return View(logins);
+            //var kq = logins.Where(u => u.Age == 21).ToList();
+            //var kq = logins.OrderByDescending(x => x.Name).Take(1);
+            //TakeWhile(x => x.Age == 21) tìm đến nó không thoả mãi điều kiện thì dừng lại
+            //SkipWhile(x => x.Age == 21) bỏ qua phần tử đến nó không thoả mãi điều kiện thì mới cho hiển thị các phần tử sau
+            var kq = logins.OrderByDescending(x => x.Name).Skip(1);
+            var sum = logins.Sum(x => x.Age); // tổng
+            var avg = logins.Average(x => x.Age); // trung bình cộng
+            var max = logins.Max(x => x.Age); // lớn nhất
+            var min = logins.Min(x => x.Age); // nhỏ nhất
+            //bool kt = logins.All(u => u.Age == 21);
+            //if (kt)
+            //{
+            //    string s = "Tất cả mọi người đều có tuổi là 21.";
+            //}
+            //else
+            //{
+            //    string s = "có người khác tuổi 21.";
+            //}
+            bool kt = logins.Any(u => u.Age == 21);
+            if (kt)
+            {
+                string s = "Tồn tại người có tuổi bằng 21";
+            }
+            else
+            {
+                string s = "Không tồn tại người có tuổi bằng 21";
+            }
+            return View(kq);
         }
 
         // GET: Login/Details/5
@@ -39,24 +67,29 @@ namespace WebApplication.Controllers
         [HttpPost]
         public ActionResult Create(Login newLogin)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-                if (logins.Count > 0)
+                try
                 {
-                    newLogin.Id = logins.Max(u => u.Id) + 1;
+                    // TODO: Add insert logic here
+                    if (logins.Count > 0)
+                    {
+                        newLogin.Id = logins.Max(u => u.Id) + 1;
+                    }
+                    else
+                    {
+                        newLogin.Id = 1;
+                    }
+                    newLogin.Age = DateTime.Today.Year - newLogin.Birthday.Year;
+                    logins.Add(newLogin);
+                    return RedirectToAction("Index");
                 }
-                else
+                catch
                 {
-                    newLogin.Id = 1;
+                    return View();
                 }
-                logins.Add(newLogin);
-                return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
 
         // GET: Login/Edit/5
@@ -74,21 +107,26 @@ namespace WebApplication.Controllers
         [HttpPost]
         public ActionResult Edit(int id, Login editLogin)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
-                int i = logins.FindIndex(u => u.Id == id);
-                if (i != -1)
+                try
                 {
-                    return HttpNotFound();
+                    // TODO: Add update logic here
+                    int i = logins.FindIndex(u => u.Id == id);
+                    if (i == -1)
+                    {
+                        return HttpNotFound();
+                    }
+                    logins[i] = editLogin;
+                    logins[i].Age = DateTime.Today.Year - logins[i].Birthday.Year;
+                    return RedirectToAction("Index");
                 }
-                logins[i] = editLogin;
-                return RedirectToAction("Index");
+                catch
+                {
+                    return View();
+                }
             }
-            catch
-            {
-                return View();
-            }
+            return View(editLogin);
         }
 
         // GET: Login/Delete/5

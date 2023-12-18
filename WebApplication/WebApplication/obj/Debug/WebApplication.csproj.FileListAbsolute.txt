@@ -87,3 +87,7 @@ C:\Users\VKDUY\Downloads\Lap-trinh-ung-dung-doanh-nghiep-trong-NET\WebApplicatio
 C:\Users\VKDUY\Downloads\Lap-trinh-ung-dung-doanh-nghiep-trong-NET\WebApplication\WebApplication\obj\Debug\WebApplication.csproj.CopyComplete
 C:\Users\VKDUY\Downloads\Lap-trinh-ung-dung-doanh-nghiep-trong-NET\WebApplication\WebApplication\obj\Debug\WebApplication.dll
 C:\Users\VKDUY\Downloads\Lap-trinh-ung-dung-doanh-nghiep-trong-NET\WebApplication\WebApplication\obj\Debug\WebApplication.pdb
+C:\Users\VKDUY\Downloads\Lap-trinh-ung-dung-doanh-nghiep-trong-NET\WebApplication\WebApplication\bin\EntityFramework.dll
+C:\Users\VKDUY\Downloads\Lap-trinh-ung-dung-doanh-nghiep-trong-NET\WebApplication\WebApplication\bin\EntityFramework.SqlServer.dll
+C:\Users\VKDUY\Downloads\Lap-trinh-ung-dung-doanh-nghiep-trong-NET\WebApplication\WebApplication\bin\EntityFramework.xml
+C:\Users\VKDUY\Downloads\Lap-trinh-ung-dung-doanh-nghiep-trong-NET\WebApplication\WebApplication\bin\EntityFramework.SqlServer.xml

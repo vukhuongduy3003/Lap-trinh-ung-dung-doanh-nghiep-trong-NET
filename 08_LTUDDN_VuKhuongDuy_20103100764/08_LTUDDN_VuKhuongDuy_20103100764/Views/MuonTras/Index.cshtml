@@ -1,0 +1,70 @@
+﻿@model IEnumerable<_08_LTUDDN_VuKhuongDuy_20103100764.Models.MuonTra>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@{Html.BeginForm("Index", "MuonTras", FormMethod.Get);}
+<label>Tìm kiếm theo tên độc giả</label>
+@Html.DropDownList("MaDG", "All")
+<input type="submit" value="Tìm kiếm" />
+@{Html.EndForm();}
+
+<p>
+    @Html.ActionLink("Hiển thị độc giả đã từng mượn sách", "HienThi")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaDG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocGia.HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayMuon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaSach)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaDG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocGia.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayMuon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaSach)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaDG, tensach = item.TenSach }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaDG, tensach = item.TenSach }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaDG, tensach = item.TenSach })
+            </td>
+        </tr>
+    }
+
+</table>

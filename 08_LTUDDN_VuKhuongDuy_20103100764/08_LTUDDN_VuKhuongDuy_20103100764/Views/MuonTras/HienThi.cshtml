@@ -1,0 +1,49 @@
+﻿@model IEnumerable<_08_LTUDDN_VuKhuongDuy_20103100764.Models.MuonTra>
+@{
+    ViewBag.Title = "HienThi";
+}
+
+<h2>HienThi</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaDG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DocGia.HoTen)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NgayMuon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GiaSach)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaDG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocGia.HoTen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenSach)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayMuon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GiaSach)
+            </td>
+        </tr>
+    }
+
+</table>

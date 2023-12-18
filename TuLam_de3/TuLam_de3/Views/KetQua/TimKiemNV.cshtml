@@ -1,0 +1,85 @@
+﻿@model IEnumerable<TuLam_de3.Models.KetQua>
+
+@{
+    ViewBag.Title = "TimKiemNV";
+}
+
+<h2>Tìm kiếm với tên nhân viên</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.Label("Mời bạn nhập tên nhân viên")
+        @Html.TextBox("tenNV")
+    </div>
+    <button type="submit">Tìm kiếm</button>
+}
+
+@if (!String.IsNullOrEmpty(ViewBag.TenNV))
+{
+    if (ViewBag.TenNV != null)
+    {
+
+        <table class="table">
+            <tr>
+                <th>
+                    Mã nhân viên
+                </th>
+                <th>
+                    Tên sản phẩm
+                </th>
+                <th>
+                    Đơn giá
+                </th>
+                <th>
+                    Số lượng
+                </th>
+                <th>
+                    Họ tên nhân viên
+                </th>
+                <th>
+                    Thành tiền
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaNV)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TenSP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DonGia)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SoLuong)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NhanVien.HoTenNV)
+                    </td>
+                    <td>
+                        @if (item.DonGia.HasValue && item.SoLuong.HasValue)
+                        {
+                            decimal ThanhTien = item.DonGia.Value * item.SoLuong.Value;
+                            @ThanhTien;
+                        }
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id1 = item.MaNV, id2 = item.TenSP }) |
+                        @Html.ActionLink("Details", "Details", new { id1 = item.MaNV, id2 = item.TenSP }) |
+                        @Html.ActionLink("Delete", "Delete", new { id1 = item.MaNV, id2 = item.TenSP })
+                    </td>
+                </tr>
+
+            }
+        </table>
+    }
+    else
+    {
+        <p class="warning">Mời bạn nhập tên để tìm</p>
+    }
+}

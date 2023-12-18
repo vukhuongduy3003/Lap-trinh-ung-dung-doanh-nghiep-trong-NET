@@ -21,10 +21,16 @@
             @Html.DisplayNameFor(model => model.ReEnterPassword)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Age)
+            @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Email)
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Birthday)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassName)
         </th>
         <th></th>
     </tr>
@@ -41,10 +47,16 @@
             @Html.DisplayFor(modelItem => item.ReEnterPassword)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Age)
+            @Html.DisplayFor(modelItem => item.Email)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Email)
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Birthday)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

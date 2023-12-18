@@ -1,0 +1,54 @@
+﻿@model IEnumerable<TuLam_de3.Models.NhanVien>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Mã nhân viên
+        </th>
+        <th>
+            Họ tên nhân viên
+        </th>
+        <th>
+            Năm sinh
+        </th>
+        <th>
+            Giới tính
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaNV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HoTenNV)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NamSinh)
+        </td>
+        <td>
+          @{ 
+              String gioitinh = item.GioiTinh.Value ? "Nam" : "Nữ";
+              @gioitinh
+          }
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.MaNV }) |
+            @Html.ActionLink("Details", "Details", new { id = item.MaNV }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.MaNV })
+        </td>
+    </tr>
+}
+
+</table>
