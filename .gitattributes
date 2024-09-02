@@ -1,2 +1,20 @@
-# Auto detect text files and perform LF normalization
+# Normalize text files to use LF line endings
 * text=auto
+
+# Treat all these file types as binary
+*.dll binary
+*.exe binary
+*.pdb binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+
+# Handle line endings automatically for files detected as text
+*.cs diff
+*.html diff
+*.css diff
+*.js diff
+*.json diff
+*.xml diff
